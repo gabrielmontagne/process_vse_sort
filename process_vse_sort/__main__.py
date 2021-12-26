@@ -1,9 +1,13 @@
-from xyy import process_frame, start_server
+from xyy import process_frame, start_server, label
 
 
 @process_frame
 def sort_pixels(pixs, config):
     pixs.sort(axis=0)
+    label(
+        pixs, 
+        f'#{config.get("frame_number")}'
+    )
     return pixs
 
 
