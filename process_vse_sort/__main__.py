@@ -1,12 +1,14 @@
 from xyy import process_frame, start_server, label
+from pprint import pformat
 
 
 @process_frame
 def sort_pixels(pixs, config):
     pixs.sort(axis=0)
+    print(pformat(config))
     label(
-        pixs, 
-        f'#{config.get("frame_number")}'
+        pixs,
+        str(config.get("xyy_uno", ""))
     )
     return pixs
 
